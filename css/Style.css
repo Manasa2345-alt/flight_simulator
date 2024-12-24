@@ -1,0 +1,199 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+#canvas-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#canvas {
+  width: max(1600px, 100%);
+  height: max(800px, 100%);
+  position: absolute;
+  z-index: 0;
+}
+#floatingImage {
+  width: 150px; /* Set your desired image size */
+  animation: floatY 15s ease-out infinite;
+}
+
+@keyframes floatY {
+  100% {
+    transform: translateY(10); /* Initial position */
+  }
+  100% {
+    transform: translateY(900px); /* Move up */
+  }
+}
+#planeCanvas {
+  width: clamp(37.5rem, 28.846rem + 46.154vw, 75rem);
+  height: clamp(18.75rem, 14.423rem + 23.077vw, 37.5rem);
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+}
+#bgimage {
+  animation: floatY 5s ease-out infinite;
+}
+#instrumentCanvases {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+#speedometerCanvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  background-color: transparent;
+}
+
+#result {
+  position: absolute;
+  left: 25px;
+  bottom: 50px;
+  width: 300px;
+  min-height: 25px; /* Changed from height to min-height */
+  overflow-y: hidden; /* Prevent scroll bar */
+  resize: none; /* Prevent manual resize by user */
+  background: rgba(0, 0, 0, 0);
+  border: transparent;
+  opacity: 0;
+  color: rgb(121, 220, 145);
+  font-family: boxyFont;
+  letter-spacing: 1px;
+  font-size: 16px;
+  padding: 4px; /* Add padding for better text alignment */
+}
+
+#commandBox {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  width: 300px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.6);
+  border: transparent;
+  color: transparent;
+  opacity: 0;
+}
+
+#commandBox:focus,
+#result:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  color: white;
+  font-family: boxyFont;
+  letter-spacing: 1px;
+  font-size: 16px;
+  opacity: 1;
+}
+
+#coords {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  color: black;
+  font-family: boxyFont;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-shadow: 2px 2px #fff;
+}
+
+#navigateControls {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  z-index: 100;
+}
+
+/* Menu UI */
+#menu {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  z-index: 100;
+}
+#hamburger {
+  width: 50px;
+  height: 50px;
+  background: url("hamburger.png") 0 0; /* Set the sprite image */
+  background-size: 50px 50px;
+  cursor: pointer;
+}
+#nav {
+  background: rgba(255, 255, 255, 0.8);
+  border: solid #323c39 4px;
+  border-radius: 5%;
+  display: none;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.8rem;
+  font-family: boxyFont;
+  letter-spacing: 1px;
+  font-size: 16px;
+  user-select: none;
+}
+#nav ul {
+  list-style: none;
+  padding: 0;
+}
+#nav li {
+  cursor: pointer;
+}
+#nav li:hover {
+  color: rgb(6, 173, 224);
+}
+
+/* Customisation UI */
+#ui {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.7);
+  border: solid #323c39 4px;
+  padding: 1rem;
+  font-family: boxyFont;
+  letter-spacing: 1px;
+  z-index: 150;
+  display: block;
+}
+#customizeMenu {
+  display: none;
+  text-shadow: 1px 1px white;
+}
+#welcome {
+  display: block;
+  text-shadow: 1px 1px white;
+  text-align: center;
+}
+#settingsMenu {
+  display: none;
+  text-shadow: 1px 1px white;
+}
+#start {
+  cursor: pointer;
+}
+.planeColors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@font-face {
+  font-family: boxyFont;
+  src: url("boxyFont.otf") format("opentype");
+}
